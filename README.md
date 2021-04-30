@@ -5,7 +5,9 @@
 ### Screenshots
 
 ![Desktop view](./images/desktop.jpg)
+![Desktop error view](./images/desktop-error.jpg)
 ![Mobile view](./images/mobile.jpg)
+![Mobile error view](./images/mobile-error.jpg)
 
 ## The challenge
 
@@ -28,6 +30,30 @@ Your users should be able to:
 
 ## My process
 
+- After plugging in the HTML semantics, assigned the font weights, colors, margins and paddings to get the layout looking as close to the prototype.
+- Plugging in the simple flex to have the split layout in the desktop version.
+- Using transform to scale for the buttons hover effect.
+- Using solid box-shadow for the bottom shadow of buttons and form.
+- Introduced custom properties for font-weights which streamlined the fonts to a certain extent.
+- Using `:focus` selector for the active form field.
+- Tried using the data-error and container::after for validation, but wasn't able to make it go away if validation resulted in success.
+- Introduced sibling divs for showing the errors.
+- Weird width sizes for the input siblings elements does not make me happy.
+- Following css helped me get rid of js dependency.
+```css
+.form__input:focus ~ * {
+	display: block;
+}
+
+.form__input:valid ~ * {
+	display: none;
+}
+
+.form__input ~ * {
+	display: none;
+}
+```
+
 ### Built with
 
 - Semantic HTML5 markup
@@ -38,7 +64,19 @@ Your users should be able to:
 
 ### What I learned
 
+- How to create component just using CSS in a simple div include sizing and placement.
+- Using CSS sibling selector to set attributes to all siblings based on pseudo selectors.
+- Benefits of required attribute for form validation.
+
 ### Continued development
+
+- Trick CSS selectors
+- Width of containers.
+
+### Questions for clarification
+
+- It's tricky to set width and margin of components created just usiing CSS from a plain div. How to proper set width of custom CSS components?
+- Ways of error handling without the need of javascript?
 
 ## Author
 
